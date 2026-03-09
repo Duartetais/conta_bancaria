@@ -32,7 +32,7 @@ export function main() {
         opcao = readlinesync.questionInt("");
 
         if (opcao == 9) {
-            console.log(colors.fg.greenstrong,
+            console.log(colors.fg. bluestrong ,
                 "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
             sobre();
             console.log(colors.reset, "");
