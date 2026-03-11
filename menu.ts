@@ -1,17 +1,33 @@
 import readlinesync = require("readline-sync");
 import { colors } from "./src/util/colors";
 import { Conta } from "./src/model/Conta";
+import { ContaCorrente } from './src/model/ContaCorrente';
+import { ContaPoupanca } from './src/model/ContaPoupanca';
 
 export function main() {
 
     let opcao: number;
 
-    const conta: Conta = new Conta(1, 123, 1, "Tais", 20000);
+    const conta: Conta = new Conta(1, 123, 1, "Tais", 10000);
     conta.visualizar();
     conta.sacar(10500);
     conta.visualizar();
     conta.depositar(5000);
     conta.visualizar();
+
+     const contacorrente: ContaCorrente = new ContaCorrente(2, 123, 1, "José", 15000, 1000);
+    contacorrente.visualizar();
+    contacorrente.sacar(2000);
+    contacorrente.visualizar();
+    contacorrente.depositar(1000);
+    contacorrente.visualizar();
+
+     const contapoupanca: ContaPoupanca = new ContaPoupanca(3, 123, 2, "Kamila", 1000, 10);
+    contapoupanca.visualizar();
+    contapoupanca.sacar(200);
+    contapoupanca.visualizar();
+    contapoupanca.depositar(1000);
+    contapoupanca.visualizar();
 
     while (true) {
 
@@ -34,7 +50,7 @@ export function main() {
         console.log("                                                     ");
         console.log("_____________________________________________________");
         console.log("                                                     ",
-            colors.reset);
+        colors.reset);
 
         console.log("Entre com a opção desejada: ");
         opcao = readlinesync.questionInt("");
@@ -114,7 +130,6 @@ export function sobre(): void {
     console.log("\n______________________________________________________");
 }
 
-main();
 function keyPress(): void {
     console.log(colors.reset, "");
     console.log("\nPressione enter para continuar...");
